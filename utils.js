@@ -1,3 +1,5 @@
+window.body = document.getElementsByTagName("body")[0]
+
 function createVideoElement(src,poster=""){
 
 var v = document.createElement("video")
@@ -10,6 +12,7 @@ v.setAttribute("autoplay","")
 v.setAttribute("controls","")
 v.setAttribute("muted","")
 v.setAttribute("playsinline","")
+body.insertBefore(v,body.childNodes[0])
 return v
 
 }
@@ -25,6 +28,6 @@ tag.setAttribute(item,dict[item])
 
 return tag
 }
+
 window.createVideoElement=createVideoElement
 window.createElement = createElement
-window.body = document.getElementsByTagName("body")[0]
