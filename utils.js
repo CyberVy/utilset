@@ -25,5 +25,5 @@ tag.setAttribute(item,dict[item])
 
 return tag
 }
-document.createVideoElement=createVideoElement
-document.createElement = createElement
+window.createVideoElement=createVideoElement
+window.createElement = createElement
