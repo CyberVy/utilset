@@ -3,7 +3,7 @@ window.body = document.getElementsByTagName("body")[0]
 function createVideoElement(src,poster=""){
 
 var v = document.createElement("video")
-v.src=src
+v.setAttribute("src", src)
 var width=screen.availWidth
 v.setAttribute("width", width)
 v.setAttribute("height",width/16*9)
