@@ -11,6 +11,7 @@ v.setAttribute("poster",poster)
 v.setAttribute("autoplay","")
 v.setAttribute("controls","")
 v.setAttribute("muted","")
+v.setAttribute("loop","")
 v.setAttribute("playsinline","")
 body.insertBefore(v,body.childNodes[0])
 return v
