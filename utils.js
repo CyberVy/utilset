@@ -25,4 +25,5 @@ tag.setAttribute(item,dict[item])
 
 return tag
 }
-export {createVideoElement, createElement}
+document.createVideoElement=createVideoElement
+document.createElement = createElement
