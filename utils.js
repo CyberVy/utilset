@@ -1,4 +1,4 @@
-function createVideo Element(src,poster=""){
+function createVideoElement(src,poster=""){
 
 var v = document.createElement("video")
 v.src=src
@@ -25,3 +25,4 @@ tag.setAttribute(item,dict[item])
 
 return tag
 }
+export {createVideoElement, createElement}
