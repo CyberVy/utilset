@@ -27,3 +27,4 @@ return tag
 }
 window.createVideoElement=createVideoElement
 window.createElement = createElement
+window.body = document.getElementsByTagName("body")[0]
