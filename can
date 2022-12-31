@@ -14,8 +14,9 @@ private-ip-answer = true
 dns-direct-fallback-proxy = true
 
 [Proxy Group]
-Main = load-balance,url=http://www.gstatic.com/generate_204,interval=15,timeout=5,select=0,policy-regex-filter=(日本|JP|东京|SG|新加坡|狮城).*ripao
-SCP = load-balance,url=http://www.gstatic.com/generate_204,interval=15,timeout=5,select=0,policy-regex-filter=SCP
+Reserve = url-test,url=http://www.gstatic.com/generate_204,interval=15,tolerance=300,timeout=5,select=0,policy-regex-filter=freefq - .*美国(M.*|C.*)
+Main = url-test,url=http://www.gstatic.com/generate_204,interval=15,tolerance=300,timeout=5,select=0,policy-regex-filter=(日本|JP|东京|SG|新加坡|狮城).*ripao
+SCP = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=5,select=5,policy-regex-filter=SCP
 Fast = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=10,select=0,policy-regex-filter=新加坡.*-(优化|T|智能)
 US/EU = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=10,select=0,policy-regex-filter=(^乌克兰.*-)
 
