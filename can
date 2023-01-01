@@ -615,6 +615,7 @@ GEOIP,CN,DIRECT
 FINAL,DIRECT
 
 [Host]
+.*cn.* = server:system
 localhost = 127.0.0.1
 
 [URL Rewrite]
