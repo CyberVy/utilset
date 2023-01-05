@@ -1,9 +1,9 @@
-# Shadowrocket: 2022-12-31 19:35:32
+# Shadowrocket: 2023-01-05 12:20:26
 [General]
 bypass-system = true
 skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,captive.apple.com,*.sb-cd.com,*.embedgram.com
 tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
-dns-server = https://1.1.1.1/dns-query
+dns-server = https://1.0.0.1/dns-query
 ipv6 = true
 prefer-ipv6 = false
 dns-fallback-system = false
@@ -14,13 +14,15 @@ private-ip-answer = true
 dns-direct-fallback-proxy = true
 
 [Proxy Group]
-Reserve = url-test,url=http://www.gstatic.com/generate_204,interval=15,tolerance=300,timeout=5,select=0,policy-regex-filter=freefq - .*美国(M.*|C.*)
-Main = url-test,url=http://www.gstatic.com/generate_204,interval=15,tolerance=300,timeout=5,select=0,policy-regex-filter=(日本|JP|东京|SG|新加坡|狮城).*ripao
-SCP = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=5,select=5,policy-regex-filter=SCP
+Reserve = fallback,url=http://www.gstatic.com/generate_204,interval=15,timeout=5,select=0,policy-regex-filter=freefq.*美国(C.*|M.*)
+Main = fallback,url=http://www.gstatic.com/generate_204,interval=15,timeout=5,select=0,policy-regex-filter=(日本|JP|东京|SG|新加坡|狮城).*ripao
+SCP = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=5,select=4,policy-regex-filter=SCP
 Fast = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=10,select=0,policy-regex-filter=新加坡.*-(优化|T|智能)
 US/EU = load-balance,url=http://www.gstatic.com/generate_204,interval=43200,timeout=10,select=0,policy-regex-filter=(^乌克兰.*-)
 
 [Rule]
+IP-CIDR,1.0.0.1/32,DIRECT
+IP-CIDR,1.1.1.1/32,DIRECT
 DOMAIN-SUFFIX,hostloc.com,MAIN
 DOMAIN-KEYWORD,sharecentre,DIRECT
 DOMAIN-SUFFIX,ntdtv.com,MAIN
@@ -615,7 +617,32 @@ GEOIP,CN,DIRECT
 FINAL,DIRECT
 
 [Host]
-.*cn.* = server:system
+.*.hdslb.com = server:system
+.*.weibocdn.com = server:system
+.*.yingxiong.com = server:system
+.*.kurogame.com = server:system
+.*.bdimg.com = server:system
+.*.zhimg.com = server:system
+.*.zhihu.com = server:system
+.*.bing.net = server:system
+.*.bing.com = server:system
+.*.bcebos.com = server:system
+.*.bilivideo.com = server:system
+.*.biliapi.net = server:system
+.*.biliapi.com = server:system
+.*.taobao.com = server:system
+.*.alipay.com = server:system
+.*.netease.im = server:system
+.*.aliyun.com = server:system
+.*.apple.com = server:system
+.*.tencent.com = server:system
+.*.bdstatic.com = server:system
+.*.bilibili.com = server:system
+.*.baidu.com = server:system
+.*.qq.com = server:system
+.*.icloud.com = server:system
+.*.126.net = server:system
+.*.cn = server:system
 localhost = 127.0.0.1
 
 [URL Rewrite]
